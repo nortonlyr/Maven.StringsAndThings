@@ -26,6 +26,7 @@ public class StringsAndThings {
         	}
         		
         }
+        return counter;
     }
 
     /**
@@ -81,10 +82,9 @@ public class StringsAndThings {
     		}
     		i++;
     	}
-    }
-    
-    return (singleG<=0);
 
+    return (singleG<=0);
+}
 
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
@@ -94,6 +94,17 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+    	char[] charVersion = input.toCharArray();
+    	int res = 0;
+    	int i = 0;
+    	if(charVersion.length>=3) {
+    		while(i<charVersion.length-2) {
+    			if(charVersion[i]==charVersion[i+1] && charVersion[i+1]==charVersion[i+2]) {
+    				res++;
+    			}
+    			i++;
+    		}
+    	}
+    	return res;
     }
 }
