@@ -61,8 +61,29 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+    	char[] charVersion = input.toCharArray();
+    	boolean oops = false;
+    	int singleG = 0;
+    	int i = 0;
+    	
+    	while (!oops && i<charVersion.length) {
+    		if(charVersion[i] == 'g') {
+    			if(i==charVersion.length-1) {
+    				singleG++;
+    			}else if (i<charVersion.length-1) {
+    				if(charVersion[i+1] != 'g') {
+    					singleG++;
+    					oops = true;
+    				} else {
+    					i++;
+    				}
+    			}
+    		}
+    		i++;
+    	}
     }
+    
+    return (singleG<=0);
 
 
     /**
