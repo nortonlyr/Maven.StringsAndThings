@@ -39,7 +39,12 @@ public class StringsAndThings {
 	 * removeString("Hello there", "x") // Should return "Hello there"
 	 */
 	public String removeString(String base, String remove) {
-		return base.replace("?!:" + remove + ")", "");
+		String result = "";
+        if(base.contains(remove)){
+            result=base.replace(remove,"");
+        } else result = base;
+
+        return result;
 	}
 
 	/**
@@ -99,7 +104,7 @@ public class StringsAndThings {
 		char[] characterArrayOfInput = input.toCharArray();
 		for (int i = 0; i < input.length() - 1; i++) {
 
-			if (i + 2 < input.length()) {
+			if (i+2 < input.length()) {
 				char currentChar = characterArrayOfInput[i];
 				if (currentChar == characterArrayOfInput[i + 1] && currentChar == characterArrayOfInput[i + 2]) {
 					result++;
