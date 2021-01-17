@@ -68,30 +68,20 @@ public class StringsAndThings {
 	 * false
 	 */
 	public Boolean gIsHappy(String input) {
-		char[] charVersion = input.toCharArray();
-		boolean oops = false;
-		int singleG = 0;
-		int i = 0;
+		boolean result = false;
+        char charToCheck = 'g';
+        char[] characterArrayOfInput = input.toCharArray();
+        for(int i = 0; i < input.length(); i++){
+            if(characterArrayOfInput[i] == charToCheck){
+                if ((characterArrayOfInput[i + 1] == charToCheck) || (characterArrayOfInput[i - 1] == charToCheck)) {
+                    result = true;
+                } else {result = false;}
+            }
+        }
+        return result;
+    }
 
-		while (!oops && i < charVersion.length) {
-			if (charVersion[i] == 'g') {
-				if (i == charVersion.length - 1) {
-					singleG++;
-				} else if (i < charVersion.length - 1) {
-					if (charVersion[i + 1] != 'g') {
-						singleG++;
-						oops = true;
-					} else {
-						i++;
-					}
-				}
-			}
-			i++;
-		}
-
-		return (singleG <= 0);
-	}
-
+	
 	/**
 	 * We'll say that a "triple" in a string is a char appearing three times in a
 	 * row. Return the number of triples in the given string. The triples may
